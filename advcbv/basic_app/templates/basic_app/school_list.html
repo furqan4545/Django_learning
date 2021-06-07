@@ -1,0 +1,15 @@
+{% extends 'basic_app/basic_app_base.html' %}
+
+{% block body_block %}
+
+    <h1>Welcome to the list of all the schools!</h1>
+    <ol>
+        {% for school in schools %}  <!-- In this views.py we havent define any context dictionary with the name school_list. so where is this context dictionary
+                                        coming from. ListView automatically creates context dictionary for u. so actually it calls the model name(lowercase it) and add _list to it. -->
+            <h2><li><a href="{{ school.id }}">{{ school.name }}</a></li></h2>
+            
+        {% endfor %}
+
+    </ol>
+
+{% endblock %}

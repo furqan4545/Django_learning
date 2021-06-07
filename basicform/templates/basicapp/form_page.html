@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMS</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <h4>Fill out the Form!</h4>
+    <div class="container">
+        <form class="" method="POST">
+            {{ form.as_p }} <!-- form.as_p is used for top to bottom form fields allignment -->
+            {% csrf_token %}  <!-- It is used with every form in django for security purposes. -->
+            <input type="submit" class="btn btn-primary" value="submit">
+
+        </form>
+    
+    </div>
+
+</body>
+</html>

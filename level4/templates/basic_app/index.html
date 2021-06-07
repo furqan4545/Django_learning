@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatkas</title>
+
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+
+</head>
+<body>
+    <h1>Welcome to Home page</h1>
+    
+    <!-- Below is relative Url. which means that basic_app/ k baad jo bhi page name dengy url me, wo direct open ho jae ga. -->
+    <a href="{% url 'basic_app:other' %}"> Link to other page</a>
+    
+    <!-- Now it's time to create your own filter. In filter you can pass python functions along with builtin tags-->    
+
+    {% block body_block %}
+    <h1>{{ text|upper }}</h1>
+    <h1>{{ number|add:"90"}}</h1>
+    <!-- Remember Don't give space after filter declaration. It is sensitive. 
+    Now for creating your own filter, create a folder inside app with name templatetags and inside templatetags create 
+    a new file __init__.py and then create one more file named my_extras.py Now here you can create your own filter. 
+    Now trying our custom filter. -->
+
+    <h1>{{ text|cut:'Hello' }}</h1>
+
+    {% endblock %}
+</body>
+</html>

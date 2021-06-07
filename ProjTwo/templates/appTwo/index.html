@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App two</title>
+
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+
+</head>
+
+<body>
+    <h1> Hi welcome to Django level 2!</h1>
+    <h2> Here are your access records:</h2>
+
+    <div class="djangtwo">
+        {% if access_records %}
+        <table>
+            <thead>
+                <th>Site Name</th>
+                <th>Date Accessed</th>
+            </thead>
+        
+            {% for acc in access_records %}
+            <tr>
+                <td>{{ acc.name }}</td>
+                <td>{{ acc.date }}</td>
+            </tr>
+            {% endfor %}
+        
+        </table>
+        {% else %}
+            <p>No access Records Found!</p>
+        {% endif %}
+        
+    </div>
+</body>
+
+</html>

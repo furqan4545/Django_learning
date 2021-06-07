@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- This is base html file which contains the code or design that is repeatedly being used in different files. -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container"> 
+            <ul class="navbar-nav mr-auto">
+                <li><a class="navbar-brand" href="{% url 'index' %}">DJANGO</a></li>
+                <li><a class="nav-link" href="{% url 'admin:index' %}">Admin</a></li>
+                <li><a class="nav-link" href="{% url 'basic_app:register' %}">Register</a></li>
+                
+                {% if user.is_authenticated %}
+                <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a class="nav-link" href="{% url 'basic_app:user_login' %}">Login</a></li>
+
+                {% endif %}
+
+            </ul>
+        </div>    
+    </nav>
+
+    <div class="container">
+        <!-- This is the container in which u will do further coding, u will get this container on the page in which u will import this. 
+        So right now I want everything on this page to be displayed across every single page in which i will import this.-->
+        
+        {% block body_block%}
+        <!-- Anything outside of this block will be inherited if you extend -->
+        {% endblock %}
+    </div>
+
+</body>
+</html>

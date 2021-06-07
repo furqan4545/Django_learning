@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<!-- so the below line will inherit all the settings/changes that we made in base.html file. 
+here in the extend block i call the file name whose template i want to import in this file. and then 
+i call block body_block , in this block u put the code which u want to place in the container which u created in base.html file -->
+
+{% extends "basic_app/base.html" %}
+    {% block body_block %}
+        <h1>Welcome to other!</h1>
+        <h2>This is an example of template inheritance!</h2>
+
+    {% endblock %}
